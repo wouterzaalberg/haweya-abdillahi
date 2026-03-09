@@ -35,7 +35,7 @@
             --red-dark: #b82215;
             --red-deeper: #8a1910;
             --cream: #faf5f0;
-            --near-black: #0d0d0d;
+            --near-black: #1e2d3d;
             --warm-grey: #3a3632;
             --light-grey: #e8e4df;
         }
@@ -120,20 +120,7 @@
             z-index: 0;
         }
 
-        .hero-bg-number {
-            position: absolute;
-            top: -8vw;
-            right: -4vw;
-            font-family: 'PvdA', 'Archivo Black', sans-serif;
-            font-size: clamp(40rem, 55vw, 70rem);
-            line-height: 0.75;
-            color: rgba(255, 255, 255, 0.06);
-            pointer-events: none;
-            user-select: none;
-            z-index: 0;
-        }
-
-        .hero-top-bar {
+.hero-top-bar {
             position: absolute;
             top: 0;
             left: 0;
@@ -193,7 +180,7 @@
         }
 
         .hero-name {
-            font-family: 'PvdA', 'Archivo Black', sans-serif;
+            font-family: 'PvdA', 'PvdA', sans-serif;
             font-size: clamp(3.5rem, 10vw, 9rem);
             line-height: 0.9;
             color: #fff;
@@ -210,30 +197,7 @@
             color: #fff;
         }
 
-        .hero-number {
-            color: var(--red);
-            display: inline-block;
-            margin-left: 0.2em;
-            opacity: 0;
-            transform: translateX(-30px) scale(1.3);
-            animation: numberPunch 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
-        }
-
-        @keyframes numberPunch {
-            0% {
-                opacity: 0;
-                transform: translateX(-30px) scale(1.3);
-            }
-            70% {
-                transform: translateX(5px) scale(1);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-        }
-
-        .hero-tagline {
+.hero-tagline {
             font-family: 'Crimson Pro', serif;
             font-size: clamp(1.3rem, 2.2vw, 2rem);
             font-weight: 300;
@@ -241,6 +205,16 @@
             color: rgba(255, 255, 255, 0.85);
             max-width: 600px;
             line-height: 1.4;
+        }
+
+        .hero-tagline-red {
+            color: var(--red);
+            font-family: 'TitlingGothic', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: clamp(0.75rem, 1.2vw, 1rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
 
         .hero-scroll-hint {
@@ -297,7 +271,25 @@
             min-height: 100vh;
         }
 
-        .intro-left {
+        .intro-photo {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1);
+            transition: transform 8s ease-out;
+        }
+
+        .intro-photo.zoomed img {
+            transform: scale(1.05);
+        }
+
+        .intro-text-col {
             background: var(--near-black);
             padding: 6rem 4rem;
             display: flex;
@@ -305,18 +297,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .intro-left::before {
-            content: '03';
-            position: absolute;
-            bottom: -2rem;
-            left: -1rem;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 18rem;
-            color: rgba(255, 255, 255, 0.03);
-            line-height: 1;
-            pointer-events: none;
         }
 
         .intro-label {
@@ -329,7 +309,7 @@
         }
 
         .intro-heading {
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'PvdA', sans-serif;
             font-size: clamp(2rem, 3.5vw, 3.5rem);
             color: #fff;
             text-transform: uppercase;
@@ -350,46 +330,52 @@
             font-weight: 600;
         }
 
-        .intro-right {
-            background: var(--cream);
-            padding: 6rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        /* =========================================
+           WAAROM KANDIDAAT
+        ========================================= */
+        .waarom {
+            background: #fff;
+            padding: 8rem 4rem;
+            position: relative;
         }
 
-        .stat-block {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 2rem 0;
+        .waarom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 6rem;
+            background: var(--light-grey);
         }
 
-        .stat-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--warm-grey);
-            opacity: 0.6;
-            margin-bottom: 0.75rem;
+        .waarom-content {
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .stat-value {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.3rem;
+        .waarom-label {
+            font-family: 'PvdA', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             text-transform: uppercase;
             color: var(--near-black);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            line-height: 1;
         }
 
-        .stat-value.red {
-            color: var(--red);
-        }
-
-        .stat-desc {
-            font-size: 1rem;
+        .waarom-text p {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
             color: var(--warm-grey);
-            margin-top: 0.5rem;
-            line-height: 1.5;
             font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .waarom-text p:last-child {
+            margin-bottom: 0;
         }
 
         /* =========================================
@@ -427,7 +413,7 @@
         }
 
         .themes-title {
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'PvdA', sans-serif;
             font-size: clamp(2rem, 4vw, 3.5rem);
             text-transform: uppercase;
             line-height: 1;
@@ -435,7 +421,7 @@
 
         .themes-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 0;
             max-width: 1200px;
             margin: 0 auto;
@@ -465,7 +451,7 @@
         }
 
         .theme-number {
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'PvdA', sans-serif;
             font-size: 4rem;
             color: var(--light-grey);
             line-height: 1;
@@ -474,12 +460,24 @@
         }
 
         .theme-name {
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'TitlingGothic', sans-serif;
             font-size: 1.3rem;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
             line-height: 1.2;
             transition: color 0.5s ease;
+        }
+
+        .themes-continued {
+            padding-top: 0;
+        }
+
+        .themes-continued::before {
+            display: none;
+        }
+
+        .mobile-slotfoto {
+            display: none;
         }
 
         .theme-desc {
@@ -493,81 +491,39 @@
         /* =========================================
            QUOTE SECTION
         ========================================= */
-        .quote-section {
-            background: var(--near-black);
-            padding: 8rem 4rem;
-            text-align: center;
+        .slotfoto-section {
+            width: 100%;
+            min-height: 80vh;
+            background: url('slotfoto.jpg') center / cover no-repeat;
             position: relative;
-            overflow: hidden;
-        }
-
-        .quote-section::before {
-            content: '\201C';
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Crimson Pro', serif;
-            font-size: 15rem;
-            color: rgba(225, 43, 26, 0.15);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .quote-text {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 300;
-            font-style: italic;
-            color: #fff;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-        }
-
-        .quote-attr {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--red);
-        }
-
-        /* =========================================
-           CTA
-        ========================================= */
-        .cta-section {
-            background: var(--red);
-            padding: 8rem 4rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
             overflow: hidden;
         }
 
-        .cta-section::before {
-            content: 'STEM';
+        .slotfoto-section::before {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(10rem, 25vw, 25rem);
-            color: rgba(0, 0, 0, 0.06);
-            white-space: nowrap;
-            pointer-events: none;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.4) 35%,
+                transparent 60%
+            );
+            z-index: 0;
         }
 
-        .cta-content {
-            text-align: center;
-            position: relative;
-            z-index: 1;
+        .slotfoto-content {
+            position: absolute;
+            left: 4%;
+            right: 60%;
+            z-index: 2;
+            padding: 4rem;
+            text-align: right;
         }
 
-        .cta-date {
+        .slotfoto-date {
             font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             letter-spacing: 0.3em;
@@ -576,116 +532,73 @@
             margin-bottom: 2rem;
         }
 
-        .cta-heading {
-            font-family: 'Archivo Black', sans-serif;
+        .slotfoto-heading {
+            font-family: 'PvdA', sans-serif;
             font-size: clamp(3rem, 8vw, 7rem);
             color: #fff;
             text-transform: uppercase;
             line-height: 0.9;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .cta-heading .outline {
+        .slotfoto-heading .outline {
             -webkit-text-stroke: 2px #fff;
             color: transparent;
         }
 
-        .cta-sub {
+        .slotfoto-text {
             font-family: 'Crimson Pro', serif;
             font-size: 1.3rem;
             font-weight: 300;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--red);
-            background: #fff;
-            padding: 1.2rem 3.5rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .cta-button:hover {
-            background: var(--near-black);
+        .slotfoto-stem {
+            font-family: 'TitlingGothic', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
             color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* =========================================
+/* =========================================
            FOOTER
         ========================================= */
         .footer {
-            background: var(--near-black);
-            padding: 4rem;
+            background: var(--red);
+            padding: 2.5rem 4rem;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            justify-content: center;
+            align-items: center;
         }
 
-        .footer-left {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+        .footer a {
+            display: block;
+            transition: opacity 0.3s ease;
         }
 
-        .footer-name {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            color: #fff;
+        .footer a:hover {
+            opacity: 0.8;
         }
 
-        .footer-party {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--red);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-social a {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: #fff;
-        }
-
-        .footer-right {
-            text-align: right;
-        }
-
-        .footer-election {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.3);
+        .footer img {
+            height: 40px;
+            width: auto;
         }
 
         /* =========================================
            RESPONSIVE
         ========================================= */
+        @media (max-width: 768px) {
+            .waarom {
+                padding: 5rem 2rem;
+            }
+        }
+
         @media (max-width: 1024px) {
             .themes-grid {
                 grid-template-columns: 1fr;
@@ -705,18 +618,14 @@
                 padding: 2rem;
                 justify-content: flex-end;
                 padding-bottom: 4rem;
+                background-position: 65% center;
             }
 
             .hero-top-bar {
                 padding: 1.5rem 2rem 1.5rem 2rem;
             }
 
-            .hero-bg-number {
-                font-size: 50rem;
-                right: -8vw;
-            }
-
-            .hero-content {
+.hero-content {
                 max-width: 100%;
                 margin-left: 0;
             }
@@ -738,8 +647,11 @@
                 grid-template-columns: 1fr;
             }
 
-            .intro-left,
-            .intro-right {
+            .intro-photo {
+                min-height: 60vh;
+            }
+
+            .intro-text-col {
                 padding: 4rem 2rem;
             }
 
@@ -751,23 +663,43 @@
                 padding: 2rem;
             }
 
-            .quote-section {
-                padding: 5rem 2rem;
+            .mobile-slotfoto {
+                display: block;
+                grid-column: 1 / -1;
             }
 
-            .cta-section {
-                padding: 6rem 2rem;
+            .mobile-slotfoto img {
+                width: 100%;
+                height: 50vh;
+                object-fit: cover;
+                display: block;
+            }
+
+            .slotfoto-section {
+                min-height: auto;
+                background: var(--red);
+                background-image: none;
+            }
+
+            .slotfoto-section::before {
+                display: none;
+            }
+
+            .slotfoto-content {
+                position: relative;
+                left: auto;
+                right: auto;
+                max-width: 100%;
+                padding: 4rem 2rem;
+                text-align: left;
+            }
+
+            .themes-continued {
+                padding-top: 0;
             }
 
             .footer {
-                flex-direction: column;
-                gap: 2rem;
-                padding: 3rem 2rem;
-                align-items: flex-start;
-            }
-
-            .footer-right {
-                text-align: left;
+                padding: 2rem;
             }
         }
 
@@ -810,7 +742,6 @@
 
     <!-- ================================ HERO ================================ -->
     <section class="hero">
-        <div class="hero-bg-number" aria-hidden="true">3</div>
 
         <div class="hero-top-bar">
             <div class="hero-pvda">
@@ -823,9 +754,8 @@
             <h1 class="hero-name">
                 <span>Haweya</span>
                 <span class="last-name">Abdillahi</span>
-                <span class="hero-number">#3</span>
             </h1>
-            <p class="hero-tagline">Drie culturen, één stad, één missie.<br>Kandidaat gemeenteraad Amsterdam.</p>
+            <p class="hero-tagline" style="line-height: 1.1;"><span class="hero-tagline-red">Kandidaat Gemeenteraadslid</span><br><span class="hero-tagline-red">Lijst 1, plek 3 — PvdA Amsterdam</span></p>
         </div>
 
         <div class="hero-scroll-hint">
@@ -836,42 +766,41 @@
 
     <!-- ================================ INTRO ================================ -->
     <section class="intro">
-        <div class="intro-left">
+        <div class="intro-photo">
+            <img src="portret.jpg" alt="Haweya Abdillahi">
+        </div>
+
+        <div class="intro-text-col">
             <div class="reveal">
                 <div class="intro-label">Over Haweya</div>
-                <h2 class="intro-heading">Geboren in Utrecht,<br>Amsterdammer geworden</h2>
+                <h2 class="intro-heading">In Amsterdam ben ik<br>geworden wie ik ben</h2>
                 <p class="intro-text">
-                    Als kind las mijn Somalische vader mij de Koran voor als ik ging slapen, en mijn Surinaamse oma de Bijbel. Overdag ging ik naar mijn Nederlandse school. <strong>Drie culturen, talen en tradities</strong> — en samen vormden ze mijn thuis.
+                    Alleen in deze stad kon mijn verhaal — en het verhaal van mijn gezin — ontstaan.
                 </p>
                 <br>
                 <p class="intro-text">
-                    Die veelkleurigheid wordt te vaak als zwakte gezien. Maar het is precies wat Amsterdam zo bijzonder maakt. <strong>De belofte van deze stad</strong> — dat je hier kunt zijn wie je bent — is het waard om voor te vechten.
+                    Als kind las mijn Somalische vader de Koran voor, en mijn Surinaamse oma de Bijbel. Toch ben ik bovenal Nederlander en Amsterdammer, omdat mijn werelden juist hier samen konden komen. Deze kracht wordt te vaak als tekortkoming of kwetsbaarheid gezien, maar is wat mij betreft precies wat Amsterdam zo bijzonder maakt.
+                </p>
+                <br>
+                <p class="intro-text">
+                    De stad leerde me: je hoeft niet te kiezen wie je bent. Je mag het hier allemaal zijn. Nederlander met Somalische en Surinaamse wortels, die bij de politie werkt, moslim is, en van salsadansen houdt.
+                </p>
+                <br>
+                <p class="intro-text">
+                    We hebben hier vaak een grote mond, maar altijd een groot hart. We zien naar elkaar om en laten niemand vallen. Het is een stad die niet verdeelt, maar verbindt. Die niet oordeelt, maar verwelkomt. <strong>Daar wil ik me voor blijven inzetten.</strong>
                 </p>
             </div>
         </div>
+    </section>
 
-        <div class="intro-right">
-            <div class="reveal">
-                <div class="stat-block">
-                    <div class="stat-label">Positie</div>
-                    <div class="stat-value red">#3 op de lijst</div>
-                    <div class="stat-desc">Hoogste nieuwe binnenkomer PvdA Amsterdam</div>
-                </div>
-                <div class="stat-block">
-                    <div class="stat-label">Huidige functie</div>
-                    <div class="stat-value">Nationale Politie</div>
-                    <div class="stat-desc">Digitalisering en digitale transformatie</div>
-                </div>
-                <div class="stat-block">
-                    <div class="stat-label">Expertise</div>
-                    <div class="stat-value">Digitalisering &middot; AI &middot; Ethiek</div>
-                    <div class="stat-desc">De kansen en gevaren van technologie voor inwoners, kinderen en wijken</div>
-                </div>
-                <div class="stat-block">
-                    <div class="stat-label">Verkiezing</div>
-                    <div class="stat-value red">18 Maart 2026</div>
-                    <div class="stat-desc">Gemeenteraadsverkiezingen Amsterdam</div>
-                </div>
+    <!-- ================================ WAAROM KANDIDAAT ================================ -->
+    <section class="waarom">
+        <div class="waarom-content reveal">
+            <div class="waarom-label">Waarom kandidaat?</div>
+            <div class="waarom-text">
+                <p>Ik zie dat de stad onder druk staat. Hij wordt harder, viezer, duurder en de afstand tussen mensen groeit. Creatieve rafelrandjes verdwijnen langzaam en worden vervangen door dure appartementen. En opeens staan er voor Amsterdamse zaakjes Instagramrijen.</p>
+                <p>En voor steeds meer Amsterdammers gaat het niet over jezelf ontdekken, maar over rondkomen. Over een betaalbare woning, veilig over straat kunnen.</p>
+                <p>Juist daarom stel ik me kandidaat, omdat ik wil dat Amsterdam die sociale stad van en voor iedereen blijft. Waar ik zelf ook het voordeel van heb gehad. Dat wens ik iedereen toe. Ik geloof dat we juist lokaal dat verschil kunnen maken. Daarom heb ik mij kandidaat gesteld.</p>
             </div>
         </div>
     </section>
@@ -880,92 +809,212 @@
     <section class="themes">
         <div class="themes-header reveal">
             <div class="themes-label">Waar ik voor sta</div>
-            <h2 class="themes-title">Drie thema's<br>voor Amsterdam</h2>
+            <h2 class="themes-title">Vier prioriteiten<br>voor Amsterdam</h2>
         </div>
 
         <div class="themes-grid">
             <div class="theme-card reveal">
                 <div class="theme-number">01</div>
-                <h3 class="theme-name">Een betaalbaar<br>Amsterdam</h3>
+                <h3 class="theme-name">Smartphonevrij opgroeien<br>&amp; digitalisering</h3>
                 <p class="theme-desc">
-                    Ik kon op mijn 28ste nog een klein huisje kopen. Dat is nu ondenkbaar. Vrienden van mij — een lerares en iemand uit de jeugdzorg — kunnen geen betaalbare woning vinden. Hun huur is hoger dan mijn hypotheek. Dat is absurd, en niet goed voor Amsterdam. De stad moet betaalbaar blijven voor de mensen die haar draaiende houden.
+                    Iedereen heeft tegenwoordig de wereld in zijn zak, en dat geldt dus ook voor onze kinderen. Ik ken geen ouder die niet worstelt met schermtijd. En ik ken te veel ouders die geen idee hebben hoe groot de risico's zijn. De overheid loopt hierin mijlenver achter. Ik zie in mijn werk bij de politie welke gevolgen dit heeft. Twaalfjarigen worden geronseld om vuurbommen te plaatsen of pakketjes rond te brengen. Dat moet en kan anders. Daarom ben ik enthousiast over de ouderbeweging Smartphonevrij Opgroeien. Maar de politiek zou veel meer moeten doen. Er moet meer aandacht komen voor de rol en consequenties van het gebruik van social media onder kinderen en jongeren.
+                </p>
+                <p class="theme-desc" style="margin-top: 1rem;">
+                    De opkomst van AI biedt grote mogelijkheden voor de samenleving. Maar de ervaring uit het verleden leert ook dat digitale ontwikkelingen bestaande verschillen alleen maar uitvergroten. De overheid loopt daarin te vaak achter de feiten aan. We moeten zorgen dat digitalisering bestaande scheidslijnen, kansen en verschillen niet vergroot. We moeten sturen, beschermen, kansen creëren — en niet pas reageren als het al te laat is.
                 </p>
             </div>
 
             <div class="theme-card reveal">
                 <div class="theme-number">02</div>
-                <h3 class="theme-name">Digitalisering<br>&amp; AI</h3>
+                <h3 class="theme-name">Een stad waar<br>iedereen meedoet</h3>
                 <p class="theme-desc">
-                    Iedereen heeft de wereld in z'n zak — ook onze kinderen. Twaalfjarigen worden online geronseld voor criminaliteit. De overheid loopt mijlenver achter. Tegelijk dreigt AI de ongelijkheid te vergroten in plaats van te verkleinen. We moeten sturen en beschermen, niet pas reageren als het te laat is. En we moeten ons afvragen: als we het kunnen, moeten we het dan ook willen?
+                    Er waait in Nederland een extreemrechtse wind. Amsterdam biedt daar moedig weerstand tegen, en dat moet zo blijven.
                 </p>
+                <p class="theme-desc" style="margin-top: 1rem;">
+                    Want racisme en uitsluiting is — langzaam maar zeker — weer maatschappelijk geaccepteerd aan het raken. Met name door politici. Maar hier, in Amsterdam, zijn mensen zoals ik, met een bi-culturele achtergrond, de meerderheid. Heel veel inwoners met een migratieachtergrond worden buitengesloten, alleen omdat ze er anders uitzien.
+                </p>
+                <p class="theme-desc" style="margin-top: 1rem;">
+                    Dat moeten we nooit accepteren. In Amsterdam laten we zien dat diversiteit geen bedreiging is, maar een kracht. Dat je samen verder komt, ook als je anders bent. En dat niet je afkomst maar je toekomst ertoe doet. Ik wil in de politiek laten zien en horen dat mensen met een bi-culturele achtergrond net zo veel Amsterdammer zijn als ieder ander. De kracht van Amsterdam is juist dat iedereen een Amsterdammer kan worden.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================ THEMES ROW 2 ================================ -->
+    <section class="themes themes-continued">
+        <div class="themes-grid">
+            <div class="theme-card reveal">
+                <div class="theme-number">03</div>
+                <h3 class="theme-name">Betaalbaar<br>Amsterdam</h3>
+                <p class="theme-desc">
+                    Ik kon op mijn 28ste als ambtenaar in m'n eentje nog een klein huisje in Amsterdam kopen. Dat is nu ondenkbaar. Vrienden van mij — een lerares en iemand uit de jeugdzorg — kunnen geen betaalbare woning vinden. Hun huur is hoger dan mijn hypotheek. Dat is absurd, en niet goed voor Amsterdam. Bovendien lijkt alles duurder te worden, wat niet houdbaar is. De stad moet betaalbaar blijven voor de mensen die haar draaiende houden en daar zorgen we voor door regelingen, ondersteuning, subsidies en goed werk.
+                </p>
+            </div>
+
+            <div class="mobile-slotfoto">
+                <img src="slotfoto.jpg" alt="Haweya Abdillahi">
             </div>
 
             <div class="theme-card reveal">
-                <div class="theme-number">03</div>
-                <h3 class="theme-name">Een stad die<br>verbindt</h3>
+                <div class="theme-number">04</div>
+                <h3 class="theme-name">Aandacht<br>voor vrouwen</h3>
                 <p class="theme-desc">
-                    Er waait een extreemrechtse wind door Nederland. Amsterdam biedt daar moedig weerstand tegen. Mensen zoals ik, met een bi-culturele achtergrond, vormen hier de meerderheid. Diversiteit is geen bedreiging maar een kracht. Ik wil laten zien dat wij er zijn, dat wij Amsterdam zijn, dat wij Nederland zijn. En dat is precies wat populisten bedreigend vinden.
+                    Lange tijd ging het beter met de positie van vrouwen, maar ook die positie is niet meer vanzelfsprekend. Daarom wil ik extra aandacht voor de veiligheid van vrouwen op straat en online, blijven ze baas in eigen buik en gaan anderen niet over beslissingen over jouw lichaam, en pakken we de loonkloof aan. De gemeente heeft hierin een voorbeeldfunctie.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- ================================ QUOTE ================================ -->
-    <section class="quote-section">
-        <div class="reveal">
-            <p class="quote-text">
-                Amsterdam gaf mij de ruimte om mezelf te ontdekken. Als Nederlander met Somalische en Surinaamse wortels, als politiemedewerker die moslim is, als vrouw die haar plek vond in een stad die groter is dan één cultuur, één verhaal, één kleur.
-            </p>
-            <div class="quote-attr">Haweya Abdillahi</div>
-        </div>
-    </section>
-
-    <!-- ================================ CTA ================================ -->
-    <section class="cta-section">
-        <div class="cta-content reveal">
-            <div class="cta-date">Gemeenteraadsverkiezingen &middot; 18 maart 2026</div>
-            <h2 class="cta-heading">
+    <!-- ================================ SLOTFOTO + CTA ================================ -->
+    <section class="slotfoto-section">
+        <div class="slotfoto-content reveal">
+            <div class="slotfoto-date">Gemeenteraadsverkiezingen &middot; 18 maart 2026</div>
+            <h2 class="slotfoto-heading">
                 Stem<br><span class="outline">Haweya</span>
             </h2>
-            <p class="cta-sub">Voor een stad die verbindt, beschermt en niemand laat vallen.</p>
-            <a href="https://amsterdam.pvda.nl" target="_blank" rel="noopener" class="cta-button">Meer over PvdA Amsterdam</a>
+            <p class="slotfoto-text">
+                Op 18 maart kiezen we wie ermee mag doen in de stad.<br>
+                Over wat voor een stad we worden.<br>
+                Daar heb ik jou voor nodig.
+            </p>
+            <p class="slotfoto-text">
+                Voor een stad die verbindt.<br>
+                Voor een stad die kansen geeft.<br>
+                Voor een stad die niemand laat vallen.
+            </p>
+            <p class="slotfoto-stem">Stem Lijst 1, plek 3<br>Haweya Abdillahi</p>
         </div>
     </section>
 
     <!-- ================================ FOOTER ================================ -->
     <footer class="footer">
-        <div class="footer-left">
-            <div class="footer-name">Haweya Abdillahi</div>
-            <div class="footer-party">PvdA Amsterdam &mdash; #3</div>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/haweya-abdillahi-4650a511/" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://amsterdam.pvda.nl" target="_blank" rel="noopener">PvdA</a>
-            </div>
-        </div>
-        <div class="footer-right">
-            <div class="footer-election">GR2026 &middot; Amsterdam</div>
-        </div>
+        <a href="https://amsterdam.pvda.nl" target="_blank" rel="noopener">
+            <img src="1. PvdA Amsterdam logo wit.png" alt="PvdA Amsterdam">
+        </a>
     </footer>
 
     <script>
         // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    // Stagger children reveals
                     const delay = entry.target.closest('.themes-grid')
                         ? Array.from(entry.target.parentNode.children).indexOf(entry.target) * 150
                         : 0;
                     setTimeout(() => {
                         entry.target.classList.add('visible');
                     }, delay);
-                    observer.unobserve(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.15 });
 
-        reveals.forEach(el => observer.observe(el));
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Portret zoom bij scroll
+        const introPhoto = document.querySelector('.intro-photo');
+        if (introPhoto) {
+            const zoomObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        introPhoto.classList.add('zoomed');
+                    }
+                });
+            }, { threshold: 0.3 });
+            zoomObserver.observe(introPhoto);
+        }
+
+        // Scroll per sectie (desktop only, > 767px)
+        const scrollStops = document.querySelectorAll('section');
+        let currentStopIndex = 0;
+        let isScrolling = false;
+
+        function scrollToSection(index) {
+            if (index < 0) index = 0;
+            if (index >= scrollStops.length) index = scrollStops.length - 1;
+            currentStopIndex = index;
+            const target = scrollStops[currentStopIndex];
+
+            // Themes rij 2: scroll zodat rij 1+2 nog bovenaan zichtbaar blijft
+            if (target.classList.contains('themes-continued')) {
+                const offset = target.offsetTop - window.innerHeight * 0.3;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
+            } else {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function updateCurrentSection() {
+            const scrollPos = window.scrollY + window.innerHeight / 3;
+            scrollStops.forEach((stop, index) => {
+                if (scrollPos >= stop.offsetTop) {
+                    currentStopIndex = index;
+                }
+            });
+        }
+
+        if (window.innerWidth > 767) {
+            let lastWheelTime = 0;
+            let accumulatedDelta = 0;
+            const SCROLL_THRESHOLD = 50;
+            const SCROLL_COOLDOWN = 800;
+
+            window.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (isScrolling) return;
+
+                const now = Date.now();
+                if (now - lastWheelTime > 100) {
+                    accumulatedDelta = 0;
+                }
+                lastWheelTime = now;
+                accumulatedDelta += e.deltaY;
+
+                if (Math.abs(accumulatedDelta) >= SCROLL_THRESHOLD) {
+                    isScrolling = true;
+                    updateCurrentSection();
+
+                    if (accumulatedDelta > 0) {
+                        scrollToSection(currentStopIndex + 1);
+                    } else {
+                        scrollToSection(currentStopIndex - 1);
+                    }
+
+                    accumulatedDelta = 0;
+                    setTimeout(() => { isScrolling = false; }, SCROLL_COOLDOWN);
+                }
+            }, { passive: false });
+
+            window.addEventListener('keydown', (e) => {
+                if (isScrolling) return;
+
+                if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                    e.preventDefault();
+                    isScrolling = true;
+                    updateCurrentSection();
+                    scrollToSection(currentStopIndex + 1);
+                    setTimeout(() => { isScrolling = false; }, SCROLL_COOLDOWN);
+                } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    isScrolling = true;
+                    updateCurrentSection();
+                    scrollToSection(currentStopIndex - 1);
+                    setTimeout(() => { isScrolling = false; }, SCROLL_COOLDOWN);
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    isScrolling = true;
+                    scrollToSection(0);
+                    setTimeout(() => { isScrolling = false; }, SCROLL_COOLDOWN);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    isScrolling = true;
+                    scrollToSection(scrollStops.length - 1);
+                    setTimeout(() => { isScrolling = false; }, SCROLL_COOLDOWN);
+                }
+            });
+        }
     </script>
 
 </body>

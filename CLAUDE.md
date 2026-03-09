@@ -43,7 +43,7 @@ Fonts worden via `@font-face` geladen (OTF bestanden in root).
 - **Naam**: "HAWEYA ABDILLAHI #3" in PvdA Compressed, groot (tot 9rem)
   - "#3" in PvdA-rood met punch-animatie
 - **Achternaam**: Gewoon wit (geen outline)
-- **Tagline**: "Drie culturen, een stad, een missie."
+- **Tagline**: "Kandidaat Gemeenteraadslid. Lijst 1, plek 3 — PvdA Amsterdam."
 - **Grote "3"**: Achtergrond-element (wit, 6% opacity)
 - **Animatie**: Tekst schuift van links naar binnen, #3 verschijnt met bounce
 - **Content**: Links gepositioneerd met margin-left, max-width 55%
@@ -51,25 +51,31 @@ Fonts worden via `@font-face` geladen (OTF bestanden in root).
 
 ### 2. Intro / Over
 - Twee-koloms grid: donkere achtergrond links (bio), creme rechts (stats)
-- Stats: Positie #3, Nationale Politie, Digitalisering/AI/Ethiek, 18 Maart 2026
+- Stats: Lijst 1 plek 3, Nationale Politie, Voormalige positie Gemeente Amsterdam, 18 Maart 2026
 - "03" als groot achtergrondgetal (3% opacity)
 
-### 3. Thema's / Standpunten
-- Drie kaarten in grid: Betaalbaar Amsterdam, Digitalisering & AI, Stad die verbindt
+### 3. Waarom kandidaat?
+- Witte achtergrond, gecentreerde tekst (max 700px)
+- Verticale lijn boven de sectie
+- Crimson Pro serif, lichter gewicht
+
+### 4. Prioriteiten
+- Vier kaarten in 2x2 grid: Smartphonevrij opgroeien & digitalisering, Een stad waar iedereen meedoet, Betaalbaar Amsterdam, Aandacht voor vrouwen
 - Hover: kaart wordt zwart met witte tekst, nummer wordt rood
 - Verticale lijn boven de sectie
 
-### 4. Quote
+### 5. Quote
 - Zwarte achtergrond, groot openingsaanhalingsteken
 - Crimson Pro italic quote
 - Attributie in rood
 
-### 5. CTA (Stem)
+### 6. CTA (Stem)
 - Rode achtergrond, "STEM" als groot achtergrondwoord
 - "Haweya" in outline tekst
+- Oproep-tekst: "Op 18 maart kiezen we..." + "Stem Lijst 1, plek 3"
 - Witte CTA-button naar PvdA Amsterdam
 
-### 6. Footer
+### 7. Footer
 - Zwart, naam + partij + social links (LinkedIn, PvdA)
 - Verkiezingsdatum rechts
 
