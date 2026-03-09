@@ -7,8 +7,29 @@
     <meta name="description" content="Haweya Abdillahi, kandidaat #3 PvdA Amsterdam. Gemeenteraadsverkiezingen 18 maart 2026. Stem voor veiligheid, innovatie en een eerlijk Amsterdam.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'PvdA';
+            src: url('1. Titel - PVDA-Compressed.otf') format('opentype');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'TitlingGothic';
+            src: url('2. Ondertitel - TitlingGothicFBNormal-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'TitlingGothic';
+            src: url('3. Tekst - TitlingGothicFBNormal-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-display: swap;
+        }
+
         :root {
             --red: #e12b1a;
             --red-dark: #b82215;
@@ -76,7 +97,7 @@
         .hero {
             min-height: 100vh;
             min-height: 100svh;
-            background: var(--red);
+            background: url('hero.jpg') center right / cover no-repeat;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -85,14 +106,28 @@
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.4) 40%,
+                rgba(0, 0, 0, 0.05) 70%,
+                transparent 100%
+            );
+            z-index: 0;
+        }
+
         .hero-bg-number {
             position: absolute;
             top: -8vw;
             right: -4vw;
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'PvdA', 'Archivo Black', sans-serif;
             font-size: clamp(40rem, 55vw, 70rem);
             line-height: 0.75;
-            color: rgba(0, 0, 0, 0.08);
+            color: rgba(255, 255, 255, 0.06);
             pointer-events: none;
             user-select: none;
             z-index: 0;
@@ -103,7 +138,7 @@
             top: 0;
             left: 0;
             right: 0;
-            padding: 2rem 4rem;
+            padding: 2rem clamp(2rem, 8vw, 10rem) 2rem calc(4rem + clamp(2rem, 8vw, 10rem));
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -111,11 +146,14 @@
         }
 
         .hero-pvda {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-pvda img {
+            height: clamp(28px, 4vw, 42px);
+            width: auto;
         }
 
         .hero-date {
@@ -129,10 +167,13 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 55%;
+            margin-left: clamp(2rem, 8vw, 10rem);
         }
 
         .hero-list-number {
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'TitlingGothic', 'Space Mono', monospace;
+            font-weight: 700;
             font-size: clamp(1rem, 1.5vw, 1.4rem);
             color: rgba(255, 255, 255, 0.6);
             letter-spacing: 0.2em;
@@ -152,7 +193,7 @@
         }
 
         .hero-name {
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'PvdA', 'Archivo Black', sans-serif;
             font-size: clamp(3.5rem, 10vw, 9rem);
             line-height: 0.9;
             color: #fff;
@@ -166,8 +207,30 @@
         }
 
         .hero-name .last-name {
-            color: rgba(255, 255, 255, 0.25);
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+            color: #fff;
+        }
+
+        .hero-number {
+            color: var(--red);
+            display: inline-block;
+            margin-left: 0.2em;
+            opacity: 0;
+            transform: translateX(-30px) scale(1.3);
+            animation: numberPunch 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+        }
+
+        @keyframes numberPunch {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px) scale(1.3);
+            }
+            70% {
+                transform: translateX(5px) scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
         }
 
         .hero-tagline {
@@ -645,7 +708,7 @@
             }
 
             .hero-top-bar {
-                padding: 1.5rem 2rem;
+                padding: 1.5rem 2rem 1.5rem 2rem;
             }
 
             .hero-bg-number {
@@ -653,8 +716,18 @@
                 right: -8vw;
             }
 
-            .hero-name .last-name {
-                -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
+            .hero-content {
+                max-width: 100%;
+                margin-left: 0;
+            }
+
+            .hero::before {
+                background: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.8) 0%,
+                    rgba(0, 0, 0, 0.4) 50%,
+                    rgba(0, 0, 0, 0.1) 100%
+                );
             }
 
             .hero-scroll-hint {
@@ -703,18 +776,18 @@
         ========================================= */
         .hero-content > * {
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform: translateX(-40px);
+            animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .hero-list-number { animation-delay: 0.2s; }
         .hero-name { animation-delay: 0.4s; }
         .hero-tagline { animation-delay: 0.7s; }
 
-        @keyframes fadeUp {
+        @keyframes slideInLeft {
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
 
@@ -740,15 +813,17 @@
         <div class="hero-bg-number" aria-hidden="true">3</div>
 
         <div class="hero-top-bar">
-            <span class="hero-pvda">PvdA Amsterdam</span>
+            <div class="hero-pvda">
+                <img src="1. PvdA Amsterdam logo wit.png" alt="PvdA Amsterdam">
+            </div>
             <span class="hero-date">18 Maart 2026</span>
         </div>
 
         <div class="hero-content">
-            <div class="hero-list-number">Lijst 3</div>
             <h1 class="hero-name">
                 <span>Haweya</span>
                 <span class="last-name">Abdillahi</span>
+                <span class="hero-number">#3</span>
             </h1>
             <p class="hero-tagline">Drie culturen, één stad, één missie.<br>Kandidaat gemeenteraad Amsterdam.</p>
         </div>
