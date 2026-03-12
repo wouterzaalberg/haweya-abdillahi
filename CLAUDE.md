@@ -49,33 +49,40 @@ Fonts worden via `@font-face` geladen (OTF bestanden in root).
 - **Content**: Links gepositioneerd met margin-left, max-width 55%
 - **Scroll hint**: Rechtsonder met verticale tekst + geanimeerde lijn
 
-### 2. Intro / Over
+### 2. Video
+- Witte achtergrond, max-width 1100px
+- YouTube embed (youtube-nocookie.com) van "Stem Haweya": `_OpwKY1MGw4`
+- Clean embed: geen annotaties, geen gerelateerde video's, neutrale controls
+- Scroll-reveal animatie
+- Label "Bekijk de video" in rood mono-font
+
+### 3. Intro / Over
 - Twee-koloms grid: donkere achtergrond links (bio), creme rechts (stats)
 - Stats: Lijst 1 plek 3, Nationale Politie, Voormalige positie Gemeente Amsterdam, 18 Maart 2026
 - "03" als groot achtergrondgetal (3% opacity)
 
-### 3. Waarom kandidaat?
+### 4. Waarom kandidaat?
 - Witte achtergrond, gecentreerde tekst (max 700px)
 - Verticale lijn boven de sectie
 - Crimson Pro serif, lichter gewicht
 
-### 4. Prioriteiten
+### 5. Prioriteiten
 - Vier kaarten in 2x2 grid: Smartphonevrij opgroeien & digitalisering, Een stad waar iedereen meedoet, Betaalbaar Amsterdam, Aandacht voor vrouwen
 - Hover: kaart wordt zwart met witte tekst, nummer wordt rood
 - Verticale lijn boven de sectie
 
-### 5. Quote
+### 6. Quote
 - Zwarte achtergrond, groot openingsaanhalingsteken
 - Crimson Pro italic quote
 - Attributie in rood
 
-### 6. CTA (Stem)
+### 7. CTA (Stem)
 - Rode achtergrond, "STEM" als groot achtergrondwoord
 - "Haweya" in outline tekst
 - Oproep-tekst: "Op 18 maart kiezen we..." + "Stem Lijst 1, plek 3"
 - Witte CTA-button naar PvdA Amsterdam
 
-### 7. Footer
+### 8. Footer
 - Zwart, naam + partij + social links (LinkedIn, PvdA)
 - Verkiezingsdatum rechts
 
